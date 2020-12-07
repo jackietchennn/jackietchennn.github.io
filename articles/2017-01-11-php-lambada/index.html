@@ -16,7 +16,7 @@ function callPerson($name) { return function($about) use ($name) { return sprint
 闭包有一个有趣的bindTo()方法，可以将闭包的内部状态绑定到其他对象上，第二个参数指定了绑定闭包的对象所属的类，从而实现在闭包中访问绑定对象的私有方法和属性。
 class Bind { protected $name = &#39;no name&#39;; public $change; public function addAction($action) { $this-&gt;change = $action-&gt;bindTo($this, __CLASS__); } } $bind = new Bind(); $bind-&gt;addAction(function() { $this-&gt;name = &#34;php&#34;; return $this-&gt;name; }); $change = $bind-&gt;change; echo $change(); 使用这个特性可以方便的为类添加方法并绑定：" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://jackietchennn_blog.github.io/articles/2017-01-11-php-lambada/" />
+<meta property="og:url" content="https://jackietchennn.github.io/jackietchennn_blog.github.io/articles/2017-01-11-php-lambada/" />
 <meta property="article:published_time" content="2017-01-11T18:39:17+00:00" />
 <meta property="article:modified_time" content="2017-01-11T18:39:17+00:00" />
 
@@ -34,7 +34,7 @@ class Bind { protected $name = &#39;no name&#39;; public $change; public functio
     
   
   
-  <link rel="stylesheet" href="https://jackietchennn_blog.github.io/css/style-dark.css">
+  <link rel="stylesheet" href="https://jackietchennn.github.io/jackietchennn_blog.github.io/css/style-dark.css">
   
   
   
@@ -45,7 +45,7 @@ class Bind { protected $name = &#39;no name&#39;; public $change; public functio
   
 
   
-<link rel="icon" type="image/png" href="https://jackietchennn_blog.github.io/images/favicon.ico" />
+<link rel="icon" type="image/png" href="https://jackietchennn.github.io/jackietchennn_blog.github.io/images/favicon.ico" />
 
   
   
@@ -57,9 +57,9 @@ class Bind { protected $name = &#39;no name&#39;; public $change; public functio
   <div class="content index py4">
 
     <header id="header">
-  <a href="https://jackietchennn_blog.github.io/">
+  <a href="https://jackietchennn.github.io/jackietchennn_blog.github.io/">
   
-    <div id="logo" style="background-image: url(https://jackietchennn_blog.github.io/images/logo.png)"></div>
+    <div id="logo" style="background-image: url(https://jackietchennn.github.io/jackietchennn_blog.github.io/images/logo.png)"></div>
   
   <div id="title">
     <h1>Hello Chennn</h1>
@@ -71,13 +71,13 @@ class Bind { protected $name = &#39;no name&#39;; public $change; public functio
         <a href="#"><i class="fas fa-bars fa-2x"></i></a>
       </li>
       
-        <li><a href="/">Home</a></li>
+        <li><a href="/jackietchennn_blog.github.io/">Home</a></li>
       
-        <li><a href="/articles">Writings</a></li>
+        <li><a href="/jackietchennn_blog.github.io/articles">Writings</a></li>
       
-        <li><a href="/tags">Tags</a></li>
+        <li><a href="/jackietchennn_blog.github.io/tags">Tags</a></li>
       
-        <li><a href="/about">About</a></li>
+        <li><a href="/jackietchennn_blog.github.io/about">About</a></li>
       
     </ul>
   </div>
@@ -189,13 +189,13 @@ $getX <span style="color:#f92672">=</span> $getXCB<span style="color:#f92672">-&
     <nav>
       <ul>
          
-        <li><a href="/">Home</a></li>
+        <li><a href="/jackietchennn_blog.github.io/">Home</a></li>
          
-        <li><a href="/articles">Writings</a></li>
+        <li><a href="/jackietchennn_blog.github.io/articles">Writings</a></li>
          
-        <li><a href="/tags">Tags</a></li>
+        <li><a href="/jackietchennn_blog.github.io/tags">Tags</a></li>
          
-        <li><a href="/about">About</a></li>
+        <li><a href="/jackietchennn_blog.github.io/about">About</a></li>
         
       </ul>
     </nav>
@@ -206,7 +206,7 @@ $getX <span style="color:#f92672">=</span> $getXCB<span style="color:#f92672">-&
   </div>
 </body>
 
-<link rel="stylesheet" href=/lib/font-awesome/css/all.min.css>
-<script src=/lib/jquery/jquery.min.js></script>
-<script src=/js/main.js></script>
+<link rel="stylesheet" href=/jackietchennn_blog.github.io/lib/font-awesome/css/all.min.css>
+<script src=/jackietchennn_blog.github.io/lib/jquery/jquery.min.js></script>
+<script src=/jackietchennn_blog.github.io/js/main.js></script>
 </html>
