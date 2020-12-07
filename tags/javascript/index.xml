@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>JavaScript on Hello Chennn</title>
-    <link>https://jackietchennn.github.io/jackietchennn_blog.github.io/tags/javascript/</link>
+    <link>https://jackietchennn.github.io/tags/javascript/</link>
     <description>Recent content in JavaScript on Hello Chennn</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>You</copyright>
-    <lastBuildDate>Sun, 10 Nov 2019 09:00:00 +0000</lastBuildDate><atom:link href="https://jackietchennn.github.io/jackietchennn_blog.github.io/tags/javascript/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 10 Nov 2019 09:00:00 +0000</lastBuildDate><atom:link href="https://jackietchennn.github.io/tags/javascript/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>JavaScript URI エンコーディング</title>
-      <link>https://jackietchennn.github.io/jackietchennn_blog.github.io/articles/2019-11-10-encodeuricomponent/</link>
+      <link>https://jackietchennn.github.io/articles/2019-11-10-encodeuricomponent/</link>
       <pubDate>Sun, 10 Nov 2019 09:00:00 +0000</pubDate>
       
-      <guid>https://jackietchennn.github.io/jackietchennn_blog.github.io/articles/2019-11-10-encodeuricomponent/</guid>
+      <guid>https://jackietchennn.github.io/articles/2019-11-10-encodeuricomponent/</guid>
       <description>まとめ encodeURI()とencodeURIComponent()はRFC 2396準拠である。 encodeURI() は完全な URI を表すのに必要な文字 (Reserved Characters) はエンコードしません。 また、予約されていないが &amp;ldquo;そのまま&amp;rdquo; URI に使用できる(Unreserved Marks) 文字をエンコードしません。 encodeURIComponent() は &amp;ldquo;Unreserved Marks&amp;rdquo; 文字をエンコードしません。
 var set1 = &amp;#34;;,/?:@&amp;amp;=+$#&amp;#34;; // Reserved Characters var set2 = &amp;#34;-_.!~*&amp;#39;()&amp;#34;; // Unreserved Marks  console.log(encodeURI(set1)); // ;,/?:@&amp;amp;=+$ console.log(encodeURI(set2)); // -_.!~*&amp;#39;()  console.log(encodeURIComponent(set1)); // %3B%2C%2F%3F%3A%40%26%3D%2B%24 console.log(encodeURIComponent(set2)); // -_.!~*&amp;#39;() rfc2396 appendix-A https://tools.ietf.org/html/rfc2396#appendix-A
 URI-reference = [ absoluteURI | relativeURI ] [ &amp;quot;#&amp;quot; fragment ] absoluteURI = scheme &amp;quot;:&amp;quot; ( hier_part | opaque_part ) relativeURI = ( net_path | abs_path | rel_path ) [ &amp;quot;?</description>
@@ -21,10 +21,10 @@ URI-reference = [ absoluteURI | relativeURI ] [ &amp;quot;#&amp;quot; fragment ]
     
     <item>
       <title>JavaScript Comparison operation at a glance</title>
-      <link>https://jackietchennn.github.io/jackietchennn_blog.github.io/articles/2019-03-28-javascript-comparison/</link>
+      <link>https://jackietchennn.github.io/articles/2019-03-28-javascript-comparison/</link>
       <pubDate>Thu, 28 Mar 2019 09:00:00 +0000</pubDate>
       
-      <guid>https://jackietchennn.github.io/jackietchennn_blog.github.io/articles/2019-03-28-javascript-comparison/</guid>
+      <guid>https://jackietchennn.github.io/articles/2019-03-28-javascript-comparison/</guid>
       <description>When given a scenario like:
 console.log(null &amp;gt; -1) //true It produces true, which makes me think null is treated as 0. But when I run:
 console.log(null == 0) // false console.log(null &amp;gt; 0) // false console.log(null &amp;lt; 0) // false They all output false!
@@ -34,10 +34,10 @@ The comparison x == y, where x and y are values, produces true or false. Such a 
     
     <item>
       <title>Js tips I can&#39;t remember</title>
-      <link>https://jackietchennn.github.io/jackietchennn_blog.github.io/articles/2019-03-22-js-tips/</link>
+      <link>https://jackietchennn.github.io/articles/2019-03-22-js-tips/</link>
       <pubDate>Fri, 22 Mar 2019 09:00:00 +0000</pubDate>
       
-      <guid>https://jackietchennn.github.io/jackietchennn_blog.github.io/articles/2019-03-22-js-tips/</guid>
+      <guid>https://jackietchennn.github.io/articles/2019-03-22-js-tips/</guid>
       <description>&lt;h2 id=&#34;__proto__-vs-prototype&#34;&gt;&lt;code&gt;__proto__&lt;/code&gt; VS &lt;code&gt;prototype&lt;/code&gt;&lt;/h2&gt;
 &lt;blockquote&gt;
 &lt;p&gt;&lt;code&gt;__proto__&lt;/code&gt; is the actual object that is used in the lookup chain to resolve methods and others. &lt;code&gt;prototype&lt;/code&gt; is the object that is used to build &lt;code&gt;__proto__&lt;/code&gt; when creating an object with &lt;code&gt;new&lt;/code&gt;.&lt;/p&gt;
@@ -53,10 +53,10 @@ The comparison x == y, where x and y are values, produces true or false. Such a 
     
     <item>
       <title>ES6について</title>
-      <link>https://jackietchennn.github.io/jackietchennn_blog.github.io/articles/2019-01-18-es6/</link>
+      <link>https://jackietchennn.github.io/articles/2019-01-18-es6/</link>
       <pubDate>Fri, 18 Jan 2019 16:00:00 +0000</pubDate>
       
-      <guid>https://jackietchennn.github.io/jackietchennn_blog.github.io/articles/2019-01-18-es6/</guid>
+      <guid>https://jackietchennn.github.io/articles/2019-01-18-es6/</guid>
       <description>&lt;h2 id=&#34;overview&#34;&gt;Overview&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://github.com/lukehoban/es6features#readme&#34;&gt;https://github.com/lukehoban/es6features#readme&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;http://help.wtf/es6&#34;&gt;http://help.wtf/es6&lt;/a&gt;&lt;/p&gt;

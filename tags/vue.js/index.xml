@@ -2,28 +2,28 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Vue.js on Hello Chennn</title>
-    <link>https://jackietchennn.github.io/jackietchennn_blog.github.io/tags/vue.js/</link>
+    <link>https://jackietchennn.github.io/tags/vue.js/</link>
     <description>Recent content in Vue.js on Hello Chennn</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>You</copyright>
-    <lastBuildDate>Fri, 08 Mar 2019 09:00:00 +0000</lastBuildDate><atom:link href="https://jackietchennn.github.io/jackietchennn_blog.github.io/tags/vue.js/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 08 Mar 2019 09:00:00 +0000</lastBuildDate><atom:link href="https://jackietchennn.github.io/tags/vue.js/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Bind specific arguments of a function</title>
-      <link>https://jackietchennn.github.io/jackietchennn_blog.github.io/articles/2019-03-08-es6-bind-trick/</link>
+      <link>https://jackietchennn.github.io/articles/2019-03-08-es6-bind-trick/</link>
       <pubDate>Fri, 08 Mar 2019 09:00:00 +0000</pubDate>
       
-      <guid>https://jackietchennn.github.io/jackietchennn_blog.github.io/articles/2019-03-08-es6-bind-trick/</guid>
+      <guid>https://jackietchennn.github.io/articles/2019-03-08-es6-bind-trick/</guid>
       <description>To bind specific (nth) arguments of a function, we can write a decorator instead of using Function.bind():
 function func(p1, p2, p3) { console.log(p1, p2, p3); } // the binding starts after however many are passed in. function decorator(...bound_args) { return function(...args) { return func(...args, ...bound_args); }; } // bind the last parameter let f = decorator(&amp;#34;3&amp;#34;); f(&amp;#34;a&amp;#34;, &amp;#34;b&amp;#34;); // a b 3  // bind the last two parameter let f2 = decorator(&amp;#34;2&amp;#34;, &amp;#34;3&amp;#34;) f2(&amp;#34;a&amp;#34;); // a 2 3 Even if we want to bind just the nth argument, we can do as follows:</description>
     </item>
     
     <item>
       <title>Object.assign() with accessor descriptor</title>
-      <link>https://jackietchennn.github.io/jackietchennn_blog.github.io/articles/2019-03-08-object-assign-with-accessor-descriptor/</link>
+      <link>https://jackietchennn.github.io/articles/2019-03-08-object-assign-with-accessor-descriptor/</link>
       <pubDate>Fri, 08 Mar 2019 09:00:00 +0000</pubDate>
       
-      <guid>https://jackietchennn.github.io/jackietchennn_blog.github.io/articles/2019-03-08-object-assign-with-accessor-descriptor/</guid>
+      <guid>https://jackietchennn.github.io/articles/2019-03-08-object-assign-with-accessor-descriptor/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/assign#Copying_accessors&#34;&gt;MDN docs:&lt;/a&gt;&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;The Object.assign() method only copies enumerable and own properties from a source object to a target object. It uses [[Get]] on the source and [[Set]] on the target, so it will invoke getters and setters. Therefore it assigns properties versus just copying or defining new properties. This may make it unsuitable for merging new properties into a prototype if the merge sources contain getters.&lt;/p&gt;
@@ -52,10 +52,10 @@ function func(p1, p2, p3) { console.log(p1, p2, p3); } // the binding starts aft
     
     <item>
       <title>VueのNavigation Guards</title>
-      <link>https://jackietchennn.github.io/jackietchennn_blog.github.io/articles/2019-01-19-vue-navigation-guards/</link>
+      <link>https://jackietchennn.github.io/articles/2019-01-19-vue-navigation-guards/</link>
       <pubDate>Fri, 25 Jan 2019 09:00:00 +0000</pubDate>
       
-      <guid>https://jackietchennn.github.io/jackietchennn_blog.github.io/articles/2019-01-19-vue-navigation-guards/</guid>
+      <guid>https://jackietchennn.github.io/articles/2019-01-19-vue-navigation-guards/</guid>
       <description>Navigation guards are provided by vue-router. Three ways to hook:
  globally per-route in-component  NOTE:
  Params or query changes won&amp;rsquo;t trigger enter/leave navigation guards. You can either watch the $route object to react to those changes, or use the beforeRouteUpdate in-component guard. Make sure to always call the next function, otherwise the hook will never be resolved.  Global const router = new VueRouter({ ... }) // Before Guards router.</description>
