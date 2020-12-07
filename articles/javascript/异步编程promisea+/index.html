@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title> 异步编程Promise/A&#43; | Cactus theme example</title>
+  <meta name="description" content="Hugo is a general-purpose website framework. Technically speaking, Hugo is a static site generator. ">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="all,follow">
+  <meta name="googlebot" content="index,follow,snippet,archive">
+  <meta property="og:title" content="异步编程Promise/A&#43;" />
+<meta property="og:description" content="Promises/A&#43;规范 一个开发的、健全且可交互的JavaScript Promise标准——由开发者制定，供开发者参考。
+一个Promise实例包含着一次异步行为的结果。与promise交互的原生方式是.then方法，.then方法包含两个回调函数分别用于接收实例成功执行时收到的结果或失败时的原因。
+这份规范详细阐述了then方法的内在行为，只要是符合promise实现的promise/A&#43;都能依赖then提供的这份交互基础。因此，这份规范必须要非常稳定。尽管Promise/A&#43;的维护组织偶尔会通过向下兼容的微小改动来修订此规范，以解决新发现的极端(边缘)情况，但只有经过谨慎的考虑、讨论和测试，我们才会集成大型或向下不兼容的更改。
+从历史上看，Promises/A&#43;规范阐明了较早时期Promise/A提案的行为条例，并通过涵盖实际行为，忽略未指定或有问题的部分来继承了早期提案。
+最后需要说明的是，Promise/A&#43;核心规范并不关心如何创建、成功执行、失败执行的promise，而是专注于提供一个可交互的then方法。当然，在未来的规范中可能会涉及这些主题。
+1. 术语  ​	1.1. &ldquo;promise&rdquo; 是一个包含了符合这份规范的then方法的对象或函数。
+​	1.2. &ldquo;thenable&rdquo; 是一个定义了then方法的对象或函数。
+​	1.3. &ldquo;value&rdquo; 是一个符合JavaScript值类型的任意值( 包括undefined，一个thenable或一个promise )。
+​	1.4. &ldquo;exception&rdquo; 是一个通过throw语句抛出的异常值。
+​	1.5. &ldquo;reason&rdquo; 代表promise执行失败时抛出的值( 原因 )。
+2. 标准  2.1. Promise 状态 一个promise实例必定只能是如下三个状态中的一个：pendding，fulfilled，rejected。
+2.1.1. 当处于pending状态时：
+​	2.1.1.1. promise可能会凝固成fulfilled或rejected状态。
+2.1.2. 当处于fulfilled状态时：
+​	2.1.2.1. promise的状态不会再发生改变。
+​	2.1.2.2. promise会包含一个不会发生变化的value值。
+2.1.3. 当处于rejected状态时：
+​	2.1.3.1. promise的状态不会再发生变化。
+​	2.1.3.2. promise包含一个不会发生变化的reason值。
+需要注意的是，值不再改变的意思是不变的识别号( 例如 === )，但不意味着深层变化( 此处理解为value是一个对象，JavaScript的对象在增删改一个属性时，对象本身不会变化 &ndash; 引用类型 )。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://example.com/articles/javascript/%E5%BC%82%E6%AD%A5%E7%BC%96%E7%A8%8Bpromisea&#43;/" />
+<meta property="article:published_time" content="2020-12-05T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-12-05T00:00:00+00:00" />
+
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="异步编程Promise/A&#43;"/>
+<meta name="twitter:description" content="Promises/A&#43;规范 一个开发的、健全且可交互的JavaScript Promise标准——由开发者制定，供开发者参考。
+一个Promise实例包含着一次异步行为的结果。与promise交互的原生方式是.then方法，.then方法包含两个回调函数分别用于接收实例成功执行时收到的结果或失败时的原因。
+这份规范详细阐述了then方法的内在行为，只要是符合promise实现的promise/A&#43;都能依赖then提供的这份交互基础。因此，这份规范必须要非常稳定。尽管Promise/A&#43;的维护组织偶尔会通过向下兼容的微小改动来修订此规范，以解决新发现的极端(边缘)情况，但只有经过谨慎的考虑、讨论和测试，我们才会集成大型或向下不兼容的更改。
+从历史上看，Promises/A&#43;规范阐明了较早时期Promise/A提案的行为条例，并通过涵盖实际行为，忽略未指定或有问题的部分来继承了早期提案。
+最后需要说明的是，Promise/A&#43;核心规范并不关心如何创建、成功执行、失败执行的promise，而是专注于提供一个可交互的then方法。当然，在未来的规范中可能会涉及这些主题。
+1. 术语  ​	1.1. &ldquo;promise&rdquo; 是一个包含了符合这份规范的then方法的对象或函数。
+​	1.2. &ldquo;thenable&rdquo; 是一个定义了then方法的对象或函数。
+​	1.3. &ldquo;value&rdquo; 是一个符合JavaScript值类型的任意值( 包括undefined，一个thenable或一个promise )。
+​	1.4. &ldquo;exception&rdquo; 是一个通过throw语句抛出的异常值。
+​	1.5. &ldquo;reason&rdquo; 代表promise执行失败时抛出的值( 原因 )。
+2. 标准  2.1. Promise 状态 一个promise实例必定只能是如下三个状态中的一个：pendding，fulfilled，rejected。
+2.1.1. 当处于pending状态时：
+​	2.1.1.1. promise可能会凝固成fulfilled或rejected状态。
+2.1.2. 当处于fulfilled状态时：
+​	2.1.2.1. promise的状态不会再发生改变。
+​	2.1.2.2. promise会包含一个不会发生变化的value值。
+2.1.3. 当处于rejected状态时：
+​	2.1.3.1. promise的状态不会再发生变化。
+​	2.1.3.2. promise包含一个不会发生变化的reason值。
+需要注意的是，值不再改变的意思是不变的识别号( 例如 === )，但不意味着深层变化( 此处理解为value是一个对象，JavaScript的对象在增删改一个属性时，对象本身不会变化 &ndash; 引用类型 )。"/>
+
+  
+  
+    
+  
+  
+  <link rel="stylesheet" href="https://example.com/css/style-dark.css">
+  
+  
+  
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  
+
+  
+<link rel="icon" type="image/png" href="https://example.com/images/favicon.ico" />
+
+  
+  
+  
+  
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+  <div class="content index py4">
+
+    <header id="header">
+  <a href="https://example.com">
+  
+    <div id="logo" style="background-image: url(https://example.com/images/logo.png)"></div>
+  
+  <div id="title">
+    <h1>Cactus theme example</h1>
+  </div>
+  </a>
+  <div id="nav">
+    <ul>
+      <li class="icon">
+        <a href="#"><i class="fas fa-bars fa-2x"></i></a>
+      </li>
+      
+        <li><a href="/">Home</a></li>
+      
+        <li><a href="/articles">Writings</a></li>
+      
+        <li><a href="/tags">Tags</a></li>
+      
+        <li><a href="/about">About</a></li>
+      
+    </ul>
+  </div>
+</header>
+
+
+
+    
+<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <div class="content" itemprop="articleBody">
+  
+    <h1 id="promisesa规范">Promises/A+规范</h1>
+<p><strong>一个开发的、健全且可交互的JavaScript Promise标准——由开发者制定，供开发者参考。</strong></p>
+<p>一个Promise实例包含着一次异步行为的结果。与promise交互的原生方式是<code>.then</code>方法，<code>.then</code>方法包含两个回调函数分别用于接收实例成功执行时收到的结果或失败时的原因。</p>
+<p>这份规范详细阐述了<code>then</code>方法的内在行为，只要是符合promise实现的promise/A+都能依赖<code>then</code>提供的这份交互基础。因此，这份规范必须要非常稳定。尽管Promise/A+的维护组织偶尔会通过向下兼容的微小改动来修订此规范，以解决新发现的极端(边缘)情况，但只有经过谨慎的考虑、讨论和测试，我们才会集成大型或向下不兼容的更改。</p>
+<p>从历史上看，Promises/A+规范阐明了较早时期Promise/A提案的行为条例，并通过涵盖实际行为，忽略未指定或有问题的部分来继承了早期提案。</p>
+<p>最后需要说明的是，Promise/A+核心规范并不关心如何创建、成功执行、失败执行的promise，而是专注于提供一个可交互的<code>then</code>方法。当然，在未来的规范中可能会涉及这些主题。</p>
+<h2 id="1-术语">1. 术语</h2>
+<hr>
+<p>​	1.1. &ldquo;promise&rdquo; 是一个包含了符合这份规范的then方法的对象或函数。</p>
+<p>​	1.2. &ldquo;thenable&rdquo; 是一个定义了then方法的对象或函数。</p>
+<p>​	1.3. &ldquo;value&rdquo; 是一个符合JavaScript值类型的任意值( 包括<code>undefined</code>，一个thenable或一个promise )。</p>
+<p>​	1.4. &ldquo;exception&rdquo; 是一个通过<code>throw</code>语句抛出的异常值。</p>
+<p>​	1.5. &ldquo;reason&rdquo; 代表promise执行失败时抛出的值( 原因 )。</p>
+<h2 id="2-标准">2. 标准</h2>
+<hr>
+<h3 id="21--promise-状态">2.1.  Promise 状态</h3>
+<p>一个promise实例必定只能是如下三个状态中的一个：<code>pendding</code>，<code>fulfilled</code>，<code>rejected</code>。</p>
+<p>2.1.1. 当处于<code>pending</code>状态时：</p>
+<p>​	2.1.1.1. promise可能会凝固成fulfilled或rejected状态。</p>
+<p>2.1.2. 当处于<code>fulfilled</code>状态时：</p>
+<p>​	2.1.2.1. promise的状态不会再发生改变。</p>
+<p>​	2.1.2.2. promise会包含一个不会发生变化的value值。</p>
+<p>2.1.3. 当处于<code>rejected</code>状态时：</p>
+<p>​	2.1.3.1. promise的状态不会再发生变化。</p>
+<p>​	2.1.3.2. promise包含一个不会发生变化的reason值。</p>
+<p>需要注意的是，值不再改变的意思是不变的识别号( 例如 === )，但不意味着深层变化( 此处理解为value是一个对象，JavaScript的对象在增删改一个属性时，对象本身不会变化 &ndash; 引用类型 )。</p>
+<h3 id="22--then方法">2.2.  then方法</h3>
+<p>一个promise一定会提供<code>then</code>方法，用于访问它当前或最终的结果值或原因。</p>
+<p>一个promise的<code>then</code>方法接受两个参数：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">promise</span>.<span style="color:#a6e22e">then</span>(<span style="color:#a6e22e">onFulfilled</span>, <span style="color:#a6e22e">onRejected</span>)
+</code></pre></div><p>2.2.1. <code>onFulfilled</code>和<code>onRejected</code>都是可选参数：</p>
+<p>​	2.2.1.1. 如果<code>onFulfilled</code>不是一个函数，则必须忽略。</p>
+<p>​	2.2.1.2. 如果<code>onRejected</code>不是一个函数，则必须忽略。</p>
+<p>2.2.2. 如果<code>onFulfilled</code>是一个函数：</p>
+<p>​	2.2.2.1. <code>promise</code>状态凝固为fulfilled后，携带<code>promise</code>&lsquo;s的value作为第一个参数，然后被执行。</p>
+<p>​	2.2.2.2. <code>promise</code>状态凝固为fulfilled之前，<code>onFulfilled</code>回调必须不可以执行。</p>
+<p>​	2.2.2.3. 当前回调只能被执行一次。</p>
+<p>2.2.3. 如果<code>onRejected</code>是一个函数：</p>
+<p>​	2.2.3.1. <code>promise</code>状态凝固为rejected后，携带<code>promise</code>&lsquo;s的reason值作为第一个参数，然后被执行。</p>
+<p>​	2.2.3.2. <code>promise</code>状态凝固为rejected之前，<code>onRejected</code>回调必须不可以执行。</p>
+<p>​	2.2.3.3. 当前回调只能被执行一次。</p>
+<p>2.2.4. <code>onFulfilled</code> 或 <code>onRejected</code>直到执行环境栈中只剩下平台代码才能执行被执行[^ 3.1 ]。</p>
+<p>2.2.5. <code>onFulfilled</code> 或 <code>onRejected</code>必须作为函数被调用(即没有this值)[^ 3.2]。</p>
+<p>2.2.6. promise实例可以多次调用<code>then</code>方法：</p>
+<p>​	2.2.6.1. 当<code>promise</code>凝固成fulfilled时，按顺序依次执行通过<code>then</code>添加的<code>onFulfilled</code>回调函数。</p>
+<p>​	2.2.6.2. 当<code>promise</code>凝固成rejected时，按顺序依次执行通过<code>then</code>添加的<code>onRejected</code>回调函数。</p>
+<p>2.2.7. <code>then</code>一定返回一个<code>promise</code>实例[^ 3.3]。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">promise2</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">promise1</span>.<span style="color:#a6e22e">then</span>(<span style="color:#a6e22e">onFulfilled</span>, <span style="color:#a6e22e">onRejected</span>);
+</code></pre></div><p>​	2.2.7.1. 当<code>onFulfilled</code>或<code>onRejected</code>回调函数返回一个值<code>x</code>，都要执行Promise的内部解析器 <code>[[Resolve]](promise2, x)</code>。</p>
+<p>​	2.2.7.2. 当<code>onFulfilled</code>或<code>onRejected</code>回调抛出一个异常<code>e</code>，<code>promise2</code>会失败并以<code>e</code>作为失败结果。</p>
+<p>​	2.2.7.3. 如果<code>onFulfilled</code>非函数并且<code>promise1</code>处于fulfilled状态，<code>promise2</code>以与<code>promise1</code>相同的值直接凝固成fulfilled状态。</p>
+<p>​	2.2.7.4. 如果<code>onRejected</code>非函数并且<code>promise1</code>处于rejected状态，<code>promise2</code>以与<code>promise1</code>相同的失败原因直接凝固成rejected状态。</p>
+<h3 id="23--promise内部解析器">2.3.  Promise内部解析器</h3>
+<p><strong>Promise内部解析器</strong>是一个内部的，抽象的执行过程，以一个promise和value作为输入参数，可以表示为：<code>[[Resolve]](promise, x)</code>。如果<code>x</code>是一个theable值，也就是说它表现的像是一个promise，那么我们就会尝试创建一个<code>promise</code>去执行，并将<code>this</code>指向这个<code>promise</code>。否则，解析器会直接让<code>promise</code>以<code>x</code>直接凝固为fulfilled状态。</p>
+<p>对thenables的这种友好处理允许开发者进行一定的交互，只要它暴露了一个Promise/A+兼容的<code>then</code>方法。这种实现方式使得Promise/A+能够很好的兼容带有 <code>then</code>方法的不规范实现。</p>
+<p><code>[[Resolve]](promise, x)</code>执行时，会进行以下步骤：</p>
+<p>​	2.3.1. 如果<code>promise</code>等于<code>x</code>，<code>promise</code>状态凝固为rejected并抛出<code>TypeError</code>错误作为原因。</p>
+<p>​	2.3.2. 如果<code>x</code>是一个符合Promise/A+规范的promise实例，那么<code>promise</code>继承<code>x</code>的状态[^ 3.4 ]。</p>
+<p>​		2.3.2.1. 如果<code>x</code>处于pending状态，<code>promise</code>必须维持pending状态，直到<code>x</code>凝固成fulfilled或rejected状态。</p>
+<p>​		2.3.2.2. 如果<code>x</code>处于fulfilled状态，<code>promise</code>以相同的值凝固成fulfilled状态。</p>
+<p>​		2.3.2.3. 如果<code>x</code>处于rejected状态，<code>promise</code>以相同的原因凝固成rejected状态。</p>
+<p>​	2.3.3. 否则，如果<code>x</code>是一个对象或函数：</p>
+<p>​		2.3.3.1. 使<code>then</code>等于<code>x.then</code>[^ 3.5]。</p>
+<p>​		2.3.3.2. 如果尝试获取属性<code>x.then</code>导致抛出异常<code>e</code>，则<code>promise</code>以<code>e</code>为原因并凝固成rejected状态。</p>
+<p>​		2.3.3.3. 如果<code>then</code>是一个函数，调用<code>then</code>并将this指向<code>x</code>，分别传入参数<code>resolvePromise</code>和<code>rejectPromise</code>，此时：</p>
+<p>​			2.3.3.3.1. 如果<code>resolvePromise</code>携带值<code>y</code>被执行，则执行<code>[[Resolve]](promise, y)</code>。</p>
+<p>​			2.3.3.3.2. 如果<code>rejectPromise</code>携带原因<code>r</code>被执行，则<code>promise</code>以<code>r</code>为原因凝固状态成rejected。</p>
+<p>​			2.3.3.3.3. 如果<code>resolvePromise</code>和<code>rejectPromise</code>同时被调用，或者同一个参数(被多次执行，只有第一次生效，其余忽略。</p>
+<p>​			2.3.3.3.4. 如果在调用<code>then</code>时抛出异常<code>e</code>：</p>
+<p>​				2.3.3.3.4.1. 如果<code>resolvePromise</code>或<code>rejectPromise</code>已经被调用过，则忽略异常。</p>
+<p>​				2.3.3.3.4.2. 否则，<code>promise</code>以<code>e</code>为原因凝固成rejected状态。</p>
+<p>​		2.3.3.4. 如果<code>then</code>非函数，<code>promise</code>以<code>x</code>为值凝固成fulfilled状态。</p>
+<p>​	2.3.4. 如果<code>x</code>非对象或非函数，<code>promise</code>以<code>x</code>为值凝固成fulfilled状态。</p>
+<p>如果一个promise解析了一个带有自引用thenable的对象，而<code>[[Resolve]](promise, thenable)</code>的递归性质又使得其被再次调用，根据上述的算法将会陷入无限递归之中。基于Promise/A+规范实现的Promise虽不强制要求解决这个问题，但也鼓励开发人员检测这样的递归是否存在，若检测到存在则以一个可识别的<code>TypeError</code>为据因来决绝<code>promise</code>。[^ 3.6]</p>
+<h2 id="3-脚注">3. 脚注</h2>
+<h2 id="promisea源码实现如下">Promise/A+源码实现如下</h2>
+
+  
+  </div>
+</article>
+
+
+    <footer id="footer">
+  <div class="footer-left">
+    Copyright  &copy; 2020  You 
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+        <li><a href="/">Home</a></li>
+         
+        <li><a href="/articles">Writings</a></li>
+         
+        <li><a href="/tags">Tags</a></li>
+         
+        <li><a href="/about">About</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+
+  </div>
+</body>
+
+<link rel="stylesheet" href=/lib/font-awesome/css/all.min.css>
+<script src=/lib/jquery/jquery.min.js></script>
+<script src=/js/main.js></script>
+</html>
