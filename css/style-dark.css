@@ -453,7 +453,7 @@ html {
   margin: 0;
   padding: 0;
   height: 100%;
-  border-top: 2px solid #c9cacc;
+  /* border-top: 2px solid #c9cacc; */
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
 }
@@ -508,7 +508,7 @@ body {
   background: none;
 }
 .content a.icon:hover {
-  color: #2bbc8a;
+  color: #d480aa;
 }
 .content h1 a,
 .content .h1 a,
@@ -1233,7 +1233,7 @@ article .content .caption {
   #archive .post-list .post-item {
     display: flex;
     margin-bottom: 5px;
-    margin-left: 1rem;
+    /* margin-left: 1rem; */
   }
   #archive .post-list .post-item .meta {
     text-align: left;
@@ -1582,4 +1582,42 @@ code {
 }
 .highlight .line {
   height: 22px;
+}
+
+/* 2020-12-09 自定义样式 */
+.page-title {
+  margin: 0;
+}
+article header .meta * {
+  color: #ccc;
+  font-size: .85rem;
+}
+.article-tag i {
+  font-size: 12px !important;
+}
+.article-tag::before {
+  content: "|";
+}
+body::-webkit-scrollbar {
+  display: none;
+}
+span.find-me {
+  display: inline-block;
+}
+span.find-me::before {
+  content: "|";
+  padding-right: 5px;
+}
+.typed {
+  display: inline;
+  white-space: pre-wrap;
+  line-height: 30px;
+}
+article .content blockquote {
+  background: inherit;
+  color: #ccffb6;
+  border-left: 0 solid #ccc;
+  margin: 1rem 10px 1rem 0;
+  padding: .5em 0;
+  quotes: "\201C" "\201D" "\2018" "\2019";
 }

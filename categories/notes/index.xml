@@ -1,19 +1,48 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>notes on Hello Chennn</title>
-    <link>https://jackietchennn.github.io/categories/notes/</link>
-    <description>Recent content in notes on Hello Chennn</description>
+    <title>notes on Chennn&#39;s Blog</title>
+    <link>https://example.com/categories/notes/</link>
+    <description>Recent content in notes on Chennn&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>You</copyright>
-    <lastBuildDate>Sat, 06 Jun 2020 09:00:00 +0000</lastBuildDate><atom:link href="https://jackietchennn.github.io/categories/notes/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 05 Dec 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://example.com/categories/notes/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>异步编程Promise/A&#43;</title>
+      <link>https://example.com/articles/javascript/%E5%BC%82%E6%AD%A5%E7%BC%96%E7%A8%8Bpromisea&#43;/</link>
+      <pubDate>Sat, 05 Dec 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/articles/javascript/%E5%BC%82%E6%AD%A5%E7%BC%96%E7%A8%8Bpromisea&#43;/</guid>
+      <description>一个开发的、健全且可交互的JavaScript Promise标准——由开发者制定，供开发者参考。
+一个Promise实例包含着一次异步行为的结果。与promise交互的原生方式是.then方法，.then方法包含两个回调函数分别用于接收实例成功执行时收到的结果或失败时的原因。
+这份规范详细阐述了then方法的内在行为，只要是符合promise实现的promise/A+都能依赖then提供的这份交互基础。因此，这份规范必须要非常稳定。尽管Promise/A+的维护组织偶尔会通过向下兼容的微小改动来修订此规范，以解决新发现的极端(边缘)情况，但只有经过谨慎的考虑、讨论和测试，我们才会集成大型或向下不兼容的更改。
+从历史上看，Promises/A+规范阐明了较早时期Promise/A提案的行为条例，并通过涵盖实际行为，忽略未指定或有问题的部分来继承了早期提案。
+最后需要说明的是，Promise/A+核心规范并不关心如何创建、成功执行、失败执行的promise，而是专注于提供一个可交互的then方法。当然，在未来的规范中可能会涉及这些主题。
+1. 术语  ​	1.1. &amp;ldquo;promise&amp;rdquo; 是一个包含了符合这份规范的then方法的对象或函数。
+​	1.2. &amp;ldquo;thenable&amp;rdquo; 是一个定义了then方法的对象或函数。
+​	1.3. &amp;ldquo;value&amp;rdquo; 是一个符合JavaScript值类型的任意值( 包括undefined，一个thenable或一个promise )。
+​	1.4. &amp;ldquo;exception&amp;rdquo; 是一个通过throw语句抛出的异常值。
+​	1.5. &amp;ldquo;reason&amp;rdquo; 代表promise执行失败时抛出的值( 原因 )。
+2. 标准  2.1. Promise 状态 一个promise实例必定只能是如下三个状态中的一个：pendding，fulfilled，rejected。
+2.1.1. 当处于pending状态时：
+​	2.1.1.1. promise可能会凝固成fulfilled或rejected状态。
+2.1.2. 当处于fulfilled状态时：
+​	2.1.2.1. promise的状态不会再发生改变。
+​	2.1.2.2. promise会包含一个不会发生变化的value值。
+2.1.3. 当处于rejected状态时：
+​	2.1.3.1. promise的状态不会再发生变化。
+​	2.1.3.2. promise包含一个不会发生变化的reason值。
+需要注意的是，值不再改变的意思是不变的识别号( 例如 === )，但不意味着深层变化( 此处理解为value是一个对象，JavaScript的对象在增删改一个属性时，对象本身不会变化 &amp;ndash; 引用类型 )。
+2.2. then方法 一个promise一定会提供then方法，用于访问它当前或最终的结果值或原因。</description>
+    </item>
+    
     <item>
       <title>Changes to String in java (from 1.7.0_06)</title>
-      <link>https://jackietchennn.github.io/articles/2020-06-06-changes-in-java-string/</link>
+      <link>https://example.com/articles/posts/2020-06-06-changes-in-java-string/</link>
       <pubDate>Sat, 06 Jun 2020 09:00:00 +0000</pubDate>
       
-      <guid>https://jackietchennn.github.io/articles/2020-06-06-changes-in-java-string/</guid>
+      <guid>https://example.com/articles/posts/2020-06-06-changes-in-java-string/</guid>
       <description>Before 1.7.0_06, String has 4 non static field:
  char[] value int[] offset int count int hash  Subing.substring create a String by sharing the original String&amp;rsquo;s internal char[] value and setting offset. This saves memory and makes String.substring run in a constant time($O(1)$). Meanwhile, this feature may cause memory leak1.
 http://hg.openjdk.java.net/jdk6/jdk6/jdk/file/8deef18bb749/src/share/classes/java/lang/String.java
@@ -22,29 +51,29 @@ public final class String implements java.io.Serializable, Comparable&amp;lt;Str
     
     <item>
       <title>Racket notes</title>
-      <link>https://jackietchennn.github.io/articles/2020-02-29-racket/</link>
+      <link>https://example.com/articles/posts/2020-02-29-racket/</link>
       <pubDate>Sat, 29 Feb 2020 09:00:00 +0000</pubDate>
       
-      <guid>https://jackietchennn.github.io/articles/2020-02-29-racket/</guid>
+      <guid>https://example.com/articles/posts/2020-02-29-racket/</guid>
       <description>Basic #lang racket (provide (all-defined-out)) ;this is a comment (define s &amp;#34;hello&amp;#34;) (define x 3) (define y (+ x 2)) (define cube1 (lambda (x) (* x (* x x)))) (define cube2 (lambda (x) (* x x x))) (define (cube3 x) (* x x x)) (define (pow1 x y) (if (=y 0) 1 (* x (pow1 x (- y 1))))) ; currying (define pow2 (lambda (x) (lambda (y) (pow1 x y)))) List  Empty list: null  () doesn&amp;quot;t work for null but &#39;() does   build a list: (list e1 .</description>
     </item>
     
     <item>
       <title>Standard ML notes</title>
-      <link>https://jackietchennn.github.io/articles/2019-12-30-standardml-notes/</link>
+      <link>https://example.com/articles/posts/2019-12-30-standardml-notes/</link>
       <pubDate>Mon, 30 Dec 2019 09:00:00 +0000</pubDate>
       
-      <guid>https://jackietchennn.github.io/articles/2019-12-30-standardml-notes/</guid>
+      <guid>https://example.com/articles/posts/2019-12-30-standardml-notes/</guid>
       <description>Basics Comments (* SML comment *) Variable bindings and Expressions val x = 34; (* static environment: x : int *) (* dynamic environment: x --&amp;gt; 34 *) val y = x + 1; (* Use tilde character instead of minus to reprsent negation *) val z = ~1; (* Integer Division *) val w = y div x Strings:
 (* `\n`のようなエスケープシーケンスが利用できる *) val x = &amp;quot;hello\n&amp;quot;; (* 文字列の連結には&#39;^&#39;を使う *) val y = &amp;quot;hello &amp;quot; ^ &amp;quot;world&amp;quot;; An ML program is a sequence of bindings.</description>
     </item>
     
     <item>
       <title>uipath ノート（三）- uipath orchestrator</title>
-      <link>https://jackietchennn.github.io/articles/2019-11-23-uipath-orchestrator/</link>
+      <link>https://example.com/articles/posts/2019-11-23-uipath-orchestrator/</link>
       <pubDate>Sat, 23 Nov 2019 09:00:00 +0000</pubDate>
       
-      <guid>https://jackietchennn.github.io/articles/2019-11-23-uipath-orchestrator/</guid>
+      <guid>https://example.com/articles/posts/2019-11-23-uipath-orchestrator/</guid>
       <description>利用手順 Official doc: https://docs.uipath.com/robot/docs/from-orchestrator-and-the-orchestrator-settings-window
 マシンを追加 マシン側でマシン名とユーザ名を確認
 C:\Users\user&amp;gt;hostname DESKTOP-ABCDE5F C:\Users\user&amp;gt;whoami desktop-abcde5f\user C:\Users\user&amp;gt; 追加完了後、マシンキーを取得する。
@@ -58,10 +87,10 @@ https://platform.uipath.com/&amp;lt;account name&amp;gt;/&amp;lt;service name&am
     
     <item>
       <title>uipath ノート（二）- Best Practice</title>
-      <link>https://jackietchennn.github.io/articles/2019-11-18-uipath-best-practice/</link>
+      <link>https://example.com/articles/posts/2019-11-18-uipath-best-practice/</link>
       <pubDate>Mon, 18 Nov 2019 09:00:00 +0000</pubDate>
       
-      <guid>https://jackietchennn.github.io/articles/2019-11-18-uipath-best-practice/</guid>
+      <guid>https://example.com/articles/posts/2019-11-18-uipath-best-practice/</guid>
       <description>時間をかけて各ワークフローに適したレイアウトを選択しましょう。   メイン: フローチャートまたはステートマシン
   ビジネスロジック: フローチャート
   UI インタラクション: シーケンス
@@ -81,10 +110,10 @@ https://platform.uipath.com/&amp;lt;account name&amp;gt;/&amp;lt;service name&am
     
     <item>
       <title>JavaScript URI エンコーディング</title>
-      <link>https://jackietchennn.github.io/articles/2019-11-10-encodeuricomponent/</link>
+      <link>https://example.com/articles/posts/2019-11-10-encodeuricomponent/</link>
       <pubDate>Sun, 10 Nov 2019 09:00:00 +0000</pubDate>
       
-      <guid>https://jackietchennn.github.io/articles/2019-11-10-encodeuricomponent/</guid>
+      <guid>https://example.com/articles/posts/2019-11-10-encodeuricomponent/</guid>
       <description>まとめ encodeURI()とencodeURIComponent()はRFC 2396準拠である。 encodeURI() は完全な URI を表すのに必要な文字 (Reserved Characters) はエンコードしません。 また、予約されていないが &amp;ldquo;そのまま&amp;rdquo; URI に使用できる(Unreserved Marks) 文字をエンコードしません。 encodeURIComponent() は &amp;ldquo;Unreserved Marks&amp;rdquo; 文字をエンコードしません。
 var set1 = &amp;#34;;,/?:@&amp;amp;=+$#&amp;#34;; // Reserved Characters var set2 = &amp;#34;-_.!~*&amp;#39;()&amp;#34;; // Unreserved Marks  console.log(encodeURI(set1)); // ;,/?:@&amp;amp;=+$ console.log(encodeURI(set2)); // -_.!~*&amp;#39;()  console.log(encodeURIComponent(set1)); // %3B%2C%2F%3F%3A%40%26%3D%2B%24 console.log(encodeURIComponent(set2)); // -_.!~*&amp;#39;() rfc2396 appendix-A https://tools.ietf.org/html/rfc2396#appendix-A
 URI-reference = [ absoluteURI | relativeURI ] [ &amp;quot;#&amp;quot; fragment ] absoluteURI = scheme &amp;quot;:&amp;quot; ( hier_part | opaque_part ) relativeURI = ( net_path | abs_path | rel_path ) [ &amp;quot;?</description>
@@ -92,10 +121,10 @@ URI-reference = [ absoluteURI | relativeURI ] [ &amp;quot;#&amp;quot; fragment ]
     
     <item>
       <title>uipath ノート（一）</title>
-      <link>https://jackietchennn.github.io/articles/2019-10-27-uipath/</link>
+      <link>https://example.com/articles/posts/2019-10-27-uipath/</link>
       <pubDate>Sun, 27 Oct 2019 09:00:00 +0000</pubDate>
       
-      <guid>https://jackietchennn.github.io/articles/2019-10-27-uipath/</guid>
+      <guid>https://example.com/articles/posts/2019-10-27-uipath/</guid>
       <description>変数  Int32 String Boolean GenericValue　参照   UiPath Studio には GenericValue 変数の自動変換メカニズムがあり、式を正しく定義することで、目的の結果を得ることができます。式の最初の要素は、Studio から操作するガイドラインとして使用されることを考慮してください。例えば、2 つの GenericValue 変数を追加し、式の最初の変数が String として定義されてた場合、最初に代入された値を元に 2 つの値を結合し、文字列となります。 Integer として定義した場合の結果は、合計の値となります。
   Array DataTime DataTable  .Net 変数型を参照して探す方法
 アクティビティ レイアウトダイアグラム  シーエンス：　より高度で複雑な自動化に向こう フローチャート：　シンプルな自動化プロジェクトに適している ステートマシン Global Exception Handler (グローバル例外ハンドラー)   参照：https://docs.uipath.com/studio/lang-ja/docs/workflow-design

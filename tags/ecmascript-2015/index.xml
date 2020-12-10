@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ECMAScript-2015 on Chennn&#39;s Blog</title>
+    <link>https://example.com/tags/ecmascript-2015/</link>
+    <description>Recent content in ECMAScript-2015 on Chennn&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>You</copyright>
+    <lastBuildDate>Sat, 05 Dec 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://example.com/tags/ecmascript-2015/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>异步编程Promise/A&#43;</title>
+      <link>https://example.com/articles/javascript/%E5%BC%82%E6%AD%A5%E7%BC%96%E7%A8%8Bpromisea&#43;/</link>
+      <pubDate>Sat, 05 Dec 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/articles/javascript/%E5%BC%82%E6%AD%A5%E7%BC%96%E7%A8%8Bpromisea&#43;/</guid>
+      <description>一个开发的、健全且可交互的JavaScript Promise标准——由开发者制定，供开发者参考。
+一个Promise实例包含着一次异步行为的结果。与promise交互的原生方式是.then方法，.then方法包含两个回调函数分别用于接收实例成功执行时收到的结果或失败时的原因。
+这份规范详细阐述了then方法的内在行为，只要是符合promise实现的promise/A+都能依赖then提供的这份交互基础。因此，这份规范必须要非常稳定。尽管Promise/A+的维护组织偶尔会通过向下兼容的微小改动来修订此规范，以解决新发现的极端(边缘)情况，但只有经过谨慎的考虑、讨论和测试，我们才会集成大型或向下不兼容的更改。
+从历史上看，Promises/A+规范阐明了较早时期Promise/A提案的行为条例，并通过涵盖实际行为，忽略未指定或有问题的部分来继承了早期提案。
+最后需要说明的是，Promise/A+核心规范并不关心如何创建、成功执行、失败执行的promise，而是专注于提供一个可交互的then方法。当然，在未来的规范中可能会涉及这些主题。
+1. 术语  ​	1.1. &amp;ldquo;promise&amp;rdquo; 是一个包含了符合这份规范的then方法的对象或函数。
+​	1.2. &amp;ldquo;thenable&amp;rdquo; 是一个定义了then方法的对象或函数。
+​	1.3. &amp;ldquo;value&amp;rdquo; 是一个符合JavaScript值类型的任意值( 包括undefined，一个thenable或一个promise )。
+​	1.4. &amp;ldquo;exception&amp;rdquo; 是一个通过throw语句抛出的异常值。
+​	1.5. &amp;ldquo;reason&amp;rdquo; 代表promise执行失败时抛出的值( 原因 )。
+2. 标准  2.1. Promise 状态 一个promise实例必定只能是如下三个状态中的一个：pendding，fulfilled，rejected。
+2.1.1. 当处于pending状态时：
+​	2.1.1.1. promise可能会凝固成fulfilled或rejected状态。
+2.1.2. 当处于fulfilled状态时：
+​	2.1.2.1. promise的状态不会再发生改变。
+​	2.1.2.2. promise会包含一个不会发生变化的value值。
+2.1.3. 当处于rejected状态时：
+​	2.1.3.1. promise的状态不会再发生变化。
+​	2.1.3.2. promise包含一个不会发生变化的reason值。
+需要注意的是，值不再改变的意思是不变的识别号( 例如 === )，但不意味着深层变化( 此处理解为value是一个对象，JavaScript的对象在增删改一个属性时，对象本身不会变化 &amp;ndash; 引用类型 )。
+2.2. then方法 一个promise一定会提供then方法，用于访问它当前或最终的结果值或原因。</description>
+    </item>
+    
+  </channel>
+</rss>

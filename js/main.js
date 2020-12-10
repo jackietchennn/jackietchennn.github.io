@@ -110,4 +110,26 @@ $(document).ready(function() {
       });
     }
   }
+
+  /**
+    * @time 2020-12-09 16:32
+    * @author JackietChennn
+    * @description 字符动画
+    */
+  var typedStrings = [
+    "I am learning all the time, The tombstone will be my diploma.\n我一直在学习，墓碑将是我的毕业证书。\n---- Who ?? ^800",
+    "I am learning all the time, The tombstone will be my diploma.\n我一直在学习，墓碑将是我的毕业证书。\n---- It's me ^800",
+    "I am learning all the time, The tombstone will be my diploma.\n我一直在学习，墓碑将是我的毕业证书。\n---- Haha, make a joke ^800",
+    "I am learning all the time, The tombstone will be my diploma.\n我一直在学习，墓碑将是我的毕业证书。\n---- Eartha Kitt"
+  ];
+  if (document.getElementById("typed")) {
+    var options = {
+      // stringsElement: '#typed-strings',
+      strings: typedStrings,
+      typeSpeed: 20,
+      backSpeed: 0,
+      smartBackspace: true
+    };
+    new Typed(".typed", options);
+  }
 });
