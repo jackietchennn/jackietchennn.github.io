@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>ECMAScript-2015 on Chennn&#39;s Blog</title>
-    <link>https://example.com/tags/ecmascript-2015/</link>
+    <link>https://jackietchennn.github.io/tags/ecmascript-2015/</link>
     <description>Recent content in ECMAScript-2015 on Chennn&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>You</copyright>
-    <lastBuildDate>Sat, 05 Dec 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://example.com/tags/ecmascript-2015/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 05 Dec 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://jackietchennn.github.io/tags/ecmascript-2015/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>异步编程Promise/A&#43;</title>
-      <link>https://example.com/articles/javascript/%E5%BC%82%E6%AD%A5%E7%BC%96%E7%A8%8Bpromisea&#43;/</link>
+      <link>https://jackietchennn.github.io/articles/javascript/%E5%BC%82%E6%AD%A5%E7%BC%96%E7%A8%8Bpromisea&#43;/</link>
       <pubDate>Sat, 05 Dec 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://example.com/articles/javascript/%E5%BC%82%E6%AD%A5%E7%BC%96%E7%A8%8Bpromisea&#43;/</guid>
+      <guid>https://jackietchennn.github.io/articles/javascript/%E5%BC%82%E6%AD%A5%E7%BC%96%E7%A8%8Bpromisea&#43;/</guid>
       <description>一个开发的、健全且可交互的JavaScript Promise标准——由开发者制定，供开发者参考。
 一个Promise实例包含着一次异步行为的结果。与promise交互的原生方式是.then方法，.then方法包含两个回调函数分别用于接收实例成功执行时收到的结果或失败时的原因。
 这份规范详细阐述了then方法的内在行为，只要是符合promise实现的promise/A+都能依赖then提供的这份交互基础。因此，这份规范必须要非常稳定。尽管Promise/A+的维护组织偶尔会通过向下兼容的微小改动来修订此规范，以解决新发现的极端(边缘)情况，但只有经过谨慎的考虑、讨论和测试，我们才会集成大型或向下不兼容的更改。
